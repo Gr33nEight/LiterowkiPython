@@ -52,30 +52,30 @@ while True:
                         checkLetters()
                         didWin = True
                         showEndGame = True
-                    elif len(answer) < 5:
-                        toastMessageContent = "Hasło powinno mieć dokładnie 5 liter!"
+                    elif len(answer) < WORD_SIZE:
+                        toastMessageContent = LESS_THAN_5
                         toastMessageIsShown = True
-                    elif currentRow >= 5:
+                    elif currentRow >= WORD_SIZE:
                         checkLetters()
                         didWin = False
                         showEndGame = True
-                    elif wordlist.__contains__(answer):
+                    elif answer in wordlist:
                         checkLetters()
                         currentRow += 1
                         currentCell = 0
                     else:
-                        toastMessageContent = "Podane słowo nie znajduje się w bazie!"
+                        toastMessageContent = NOT_IN_DB
                         toastMessageIsShown = True
 
     def checkLetters():
-        for i in range(0,5):
+        for i in range(0,WORD_SIZE):
             answersColors[currentRow][i] = ProperColor(i)
 
     def ProperColor(idx):
         letter = answers[currentRow][idx]
         keywordList = list(keyword)
 
-        if not keywordList.__contains__(letter):
+        if letter not in keywordList:
             return wrongColor
         else:
             if letter == keywordList[idx]:

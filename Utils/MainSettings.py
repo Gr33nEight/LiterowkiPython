@@ -48,4 +48,11 @@ clock = pygame.time.Clock()
 # Background
 screen.fill(backgroundColor)
 
+# Strings
+NOT_IN_DB = "Podane słowo nie znajduje się w bazie!"
+LESS_THAN_5 = "Hasło powinno mieć dokładnie 5 liter!"
+
+# Values
+WORD_SIZE = 5
+
 # -----------------------
